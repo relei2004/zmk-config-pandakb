@@ -3,7 +3,6 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
 // https://nickcoutsos.github.io/keymap-editor/
 
 #include <behaviors.dtsi>
@@ -20,6 +19,16 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+    };
+
+    macros {
+        dead_key: dead_key {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER, &kp SPACE>;
+            label = "DEAD_KEY";
         };
     };
 
@@ -34,9 +43,9 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB         &kp Q                 &kp W                 &kp E     &kp R  &kp T        &kp Z    &umlaut_hold RA(Y) U  &kp I      &umlaut_hold RA(P) O  &kp P      &kp BSPC
-&kp LEFT_SHIFT  &umlaut_hold RA(Q) A  &umlaut_hold RA(S) S  &kp D     &kp F  &kp G        &kp H    &kp J                 &kp K      &kp L                 &none      &kp DELETE
-&kp LCTRL       &kp Y                 &kp X                 &kp C     &kp V  &kp B        &kp N    &kp M                 &kp COMMA  &kp DOT               &kp MINUS  &kp ESC
+&kp TAB         &kp Q                 &kp W                 &kp E     &kp R  &kp T        &kp Z    &umlaut_hold RA(Y) U  &kp I      &umlaut_hold RA(P) O  &kp P       &kp BSPC
+&kp LEFT_SHIFT  &umlaut_hold RA(Q) A  &umlaut_hold RA(S) S  &kp D     &kp F  &kp G        &kp H    &kp J                 &kp K      &kp L                 &kp RSHIFT  &kp DELETE
+&kp LCTRL       &kp Y                 &kp X                 &kp C     &kp V  &kp B        &kp N    &kp M                 &kp COMMA  &kp DOT               &kp MINUS   &kp ESC
                                                             &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2                 &kp LALT
             >;
         };
@@ -48,10 +57,11 @@
             // | CTRL |  #  |  $  |  |  |  ~  |  `  |   |  +  |  %  |  "  |  '  |  ;  |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
+
             bindings = <
-&kp TAB    &none          &kp UNDER   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp CARET       &kp EXCLAMATION  &kp LESS_THAN         &kp GREATER_THAN       &kp EQUAL  &kp AMPERSAND  &kp BSPC
+&kp TAB    &none          &kp UNDER   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &dead_key LS(N6) &kp EXCLAMATION  &kp LESS_THAN         &kp GREATER_THAN       &kp EQUAL  &kp AMPERSAND  &kp BSPC
 &kp LSHFT  &kp BACKSLASH  &kp SLASH   &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp ASTERISK    &kp QUESTION     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS  &kp COLON      &kp AT_SIGN
-&kp LCTRL  &kp HASH       &kp DOLLAR  &kp PIPE          &kp TILDE          &kp GRAVE       &kp PLUS         &kp PERCENT           &kp DOUBLE_QUOTES      &kp SQT    &kp SEMICOLON  &trans
+    &kp LCTRL  &kp HASH       &kp DOLLAR  &kp PIPE          &dead_key TILDE &dead_key GRAVE       &kp PLUS         &kp PERCENT           &dead_key DOUBLE_QUOTES      &dead_key SQT    &kp SEMICOLON  &trans
                                       &kp LGUI          &trans             &kp SPACE       &kp RET          &trans                &kp LALT
             >;
         };
@@ -64,19 +74,20 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp INS   &kp BSPC  &kp UP    &kp DEL    &kp PG_UP    &kp FSLH   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp MINUS  &kp BSPC
-&kp LSHFT  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT  &kp END      &kp STAR   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp PLUS   &trans
-&kp LCTRL  &none     &none     &none     &none      &kp PG_DN    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp DOT    &trans
+&kp TAB    &kp INS   &kp BSPC  &kp UP    &kp DEL    &kp PG_UP    &kp FSLH   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_SUBTRACT  &kp BSPC
+&kp LSHFT  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT  &kp END      &kp STAR   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS      &trans
+&kp LCTRL  &none     &none     &none     &none      &kp PG_DN    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp DOT          &trans
                                &kp LGUI  &trans     &kp SPACE    &kp RET    &trans     &kp LALT
             >;
         };
 
-            // -----------------------------------------------------------------------------------------
-            // |  F1  | F2   | F3    | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11  | F12 |
-            // | SHFT |BT_CLR|OUT_TOG|USB  | BLE |     |   |LEFT |DOWN | UP  |RIGHT|MUTE  | F13 |
-            // | CTRL | BR_0 | BR_1  | BR_2| BR_3| BT_4|   |PREV |VL_DW|VL_UP|NEXT |Pl/Pau|STOP |
-            //                       | GUI |     | SPC |   | ENT |     | ALT |
-        layer_4 {
+        // -----------------------------------------------------------------------------------------
+        // |  F1  | F2   | F3    | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11  | F12 |
+        // | SHFT |BT_CLR|OUT_TOG|USB  | BLE |     |   |LEFT |DOWN | UP  |RIGHT|MUTE  | F13 |
+        // | CTRL | BR_0 | BR_1  | BR_2| BR_3| BT_4|   |PREV |VL_DW|VL_UP|NEXT |Pl/Pau|STOP |
+        //                       | GUI |     | SPC |   | ENT |     | ALT |
+
+        layer_3 {
             bindings = <
 &kp F1     &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7      &kp F8        &kp F9        &kp F10     &kp F11           &kp F12
 &kp LSHFT  &bt BT_CLR    &out OUT_TOG  &out OUT_USB  &out OUT_BLE  &none           &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT   &kp C_MUTE        &kp F13
@@ -85,5 +96,13 @@
             >;
         };
     };
-};
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        layer_3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+};
