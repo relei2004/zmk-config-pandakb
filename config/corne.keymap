@@ -75,7 +75,7 @@
             bindings = <
 &kp TAB    &kp INS   &kp BSPC  &kp UP    &kp DEL    &kp PG_UP    &kp FSLH   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_SUBTRACT  &kp BSPC
 &kp LSHFT  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT  &kp END      &kp STAR   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS      &trans
-&kp LCTRL  &none     &to 1     &to 2     &to 3      &kp PG_DN    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp DOT          &trans
+&kp LCTRL  &none     &tog 1    &tog 2    &tog 3     &kp PG_DN    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp DOT          &trans
                                &kp LGUI  &trans     &kp SPACE    &kp RET    &trans     &kp LALT
             >;
         };
