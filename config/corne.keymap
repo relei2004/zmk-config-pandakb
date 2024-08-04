@@ -61,13 +61,13 @@
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |     |  _  |  [  |  ]  |  ^  |   |  !  |  <  |  >  |  =  |  &  | BKSP |
+            // |  TAB |  °  |  _  |  [  |  ]  |  ^  |   |  !  |  <  |  >  |  =  |  &  | BKSP |
             // | SHFT |  \  |  /  |  {  |  }  |  *  |   |  ?  |  (  |  )  |  -  |  :  |  @   |
             // | CTRL |  #  |  $  |  |  |  ~  |  `  |   |  +  |  %  |  "  |  '  |  ;  |      |
             //                    | ALT | LWR | SPC |   | ENT | RSE  | GUI |
 
             bindings = <
-&kp TAB    &none          &kp UNDER   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &dead_key LS(N6)    &kp EXCLAMATION  &kp LESS_THAN         &kp GREATER_THAN         &kp EQUAL      &kp AMPERSAND  &kp BSPC
+&kp TAB    &kp LS(RA(SEMICOLON))      &kp UNDER   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &dead_key LS(N6)    &kp EXCLAMATION  &kp LESS_THAN         &kp GREATER_THAN         &kp EQUAL      &kp AMPERSAND  &kp BSPC
 &kp LSHFT  &kp BACKSLASH  &kp SLASH   &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp ASTERISK        &kp QUESTION     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp MINUS      &kp COLON      &kp AT_SIGN
 &kp LCTRL  &kp HASH       &kp DOLLAR  &kp PIPE          &dead_key TILDE    &dead_key GRAVE     &kp PLUS         &kp PERCENT           &dead_key DOUBLE_QUOTES  &dead_key SQT  &kp SEMICOLON  &trans
                                       &trans            &trans             &trans              &trans           &trans                &trans
