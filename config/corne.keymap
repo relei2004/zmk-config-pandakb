@@ -131,7 +131,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &to 1   &trans    &trans  &to 2   &trans
+                        &trans  &tog 5  &trans    &trans  &tog 5  &trans
             >;
         };
     };
